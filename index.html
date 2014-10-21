@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 
+
 <head>
     <title>Test</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,56 @@
     <link rel="stylesheet" media="(orientation: portrait)" href="portrait.css">
     <link rel="stylesheet" media="(orientation: landscape)" href="landscape.css">
     <style type="text/css">
+    div#section1 {
+        float: left;
+        width: 250px;
+        background-color: #FF00FF;
+        color: #0099CC;
+    }
+    /*@media (min-width: 500px) and (max-width: 600px) {
+             h1 {
+             color: fuchsia;
+             }
+             .desc:after {
+             content: " In fact, it's between 500px and 600px wide.";
+             }
+             }*/
+    
+    p {
+        text-indent: 3em;
+    }
+    div.section2 {
+        float: left;
+        width: 250px;
+        outline: dotted;
+        border: 2px solid blue;
+    }
+    #section3 {
+        display: block;
+    }
+    a {
+        text-decoration: none;
+    }
+    a:link {
+        color: #FF0000;
+    }
+    /* 未被访问的链接 */
+    
+    a:visited {
+        color: #ffffff;
+    }
+    /* 已被访问的链接 */
+    
+    a:hover {
+        color: #FF00FF;
+    }
+    /* 鼠标指针移动到链接上 */
+    
+    a:active {
+        color: #00FF00;
+    }
+    /* 正在被点击的链接 */
+    
     @media (min-width: 500px) and (max-width: 600px) {
         h1 {
             color: fuchsia;
@@ -20,17 +71,17 @@
     @media screen and (min-width: 600px) {
         div#image_box img {
             width: 30%;
-            margin: 1% ;
+            margin: 1%;
             border-radius: 50% 50%;
             box-shadow: black 0px 0px 5px;
             box-sizing: border-box;
-            
         }
-        #image_box{
+        #image_box {
             box-sizing: border-box;
             padding: 10px 20% 80px 20%;
         }
     }
+    </style>
     </style>
 </head>
 
@@ -40,6 +91,28 @@
         <img src="seanbennett.png">
         <img src="seanbennett.png">
     </div>
+    <div class="content">
+        <div id="section1">
+            <p>
+                hello world . this is my first Web App learned from Google web fundamentals . I want to learn well. regard me, thanks.
+            </p>
+        </div>
+        <div class="section2">
+            <img src="barcode.png" />
+        </div>
+        <div id="section3">
+            <p>
+                3 hello world . this is my first Web App learned from Google web fundamentals . I want to learn well. regard me, thanks.
+            </p>
+        </div>
+    </div>
+    <ul class="nav">
+        <li><a href="#">hello world </a>
+        </li>
+        <li><a href="#">ooooo</a>
+        </li>
+    </ul>
 </body>
+
 
 </html>
