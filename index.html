@@ -17,11 +17,29 @@
             content: " In fact, it's between 500px and 600px wide.";
         }
     }
+    @media screen and (min-width: 600px) {
+        div#image_box img {
+            width: 30%;
+            margin: 1% ;
+            border-radius: 50% 50%;
+            box-shadow: black 0px 0px 5px;
+            box-sizing: border-box;
+            
+        }
+        #image_box{
+            box-sizing: border-box;
+            padding: 10px 20% 80px 20%;
+        }
+    }
     </style>
 </head>
 
 <body>
-
+    <div id="image_box">
+        <img src="seanbennett.png">
+        <img src="seanbennett.png">
+        <img src="seanbennett.png">
+    </div>
 </body>
 
 </html>
