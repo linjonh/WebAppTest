@@ -14,26 +14,25 @@
 				background-color: #FF00FF;
 				color: #0099CC;
 			}
-			/*@media (min-width: 500px) and (max-width: 600px) {
-			 h1 {
-			 color: fuchsia;
-			 }
-			 .desc:after {
-			 content: " In fact, it's between 500px and 600px wide.";
-			 }
-			 }*/
-
 			p {
 				text-indent: 3em;
 			}
-			div.section2 {
-				float: left;
+			div.barcode {
+				float: right;
 				width: 250px;
 				outline: dotted;
 				border: 2px solid blue;
 			}
+			#image_box {
+				padding: 10px 20% 80px 20%;
+			}
+			
 			#section3 {
 				display: block;
+				width: 100%;
+			}
+			#content br{
+				clear:  both;
 			}
 			a {
 				text-decoration: none;
@@ -95,19 +94,21 @@
 					hello world . this is my first Web App learned from Google web fundamentals . I want to learn well. regard me, thanks.
 				</p>
 			</div>
-			<div class="section2">
+			<div id="barcode">
 				<img src="barcode.png" />
 			</div>
-			<div id="section3">
-				<p>
-					3 hello world . this is my first Web App learned from Google web fundamentals . I want to learn well. regard me, thanks.
-				</p>
-			</div>
+			<br />
 		</div>
-		<ul class="nav">
-			<li><a href="#">hello world </a></li>
-			<li><a href="#">ooooo</a></li>
-		</ul>
+		<div id="section3">
+			<p>
+				3 hello world . this is my first Web App learned from Google web fundamentals . I want to learn well. regard me, thanks.
+			</p>
+			<ul class="nav">
+				<li><a href="#">hello world </a></li>
+				<li><a href="#">ooooo</a></li>
+			</ul>
+		</div>
+
 	</body>
 
 </html>
