@@ -1,4 +1,175 @@
-body{
-	background-color: #ffaabb;
-	color: #00ff00;
+/* 添加样式化图片
+在前面的手册中，我们添加了称为“内容图片”的图片。这些图片对于产品描述非常重要。样式化图片对内容核心来说，则并非必要，只是增添视觉效果或是帮助引导用户的注意力到内容的某特定部分。
+一个较好的例子是“第一屏”内容的标题图片。通常用来诱惑用户更多地注意到产品。
+设计的站点
+要使用它们非常简单。在我们的案例中，它是个标题背景，我们通过简单的 CSS 就可以应用。
+#headline {
+  padding: 0.8em;
+  color: white;
+  font-family: Roboto, sans-serif;
+  background-image: url(backgroundimage.jpg);
+  background-size: cover;
 }
+我们选了一张简单的背景图，图片模糊过，不至于把内容比下去，我们让它 cover 整个元素；这样它会伸展开来，同时保持正确的纵横比。
+ */
+
+#headline {
+    padding: 0.8em;
+    color: white;
+    font-family: Roboto, sans-serif;
+    background-color: #0099cc;
+    background-image: url(backgroundimage.jpg);
+    background-size: cover;
+}
+/* 设置第一个断点
+在 600px 宽时，设计开始显得糟糕。在我们的案例里，行的长度开始超过 10 个单词 (最佳阅读长度)，这就是我们要修改的地方。
+600px 看起来是创建我们第一个断点的好地方，它给了我们空间，来重新定位元素，使它们更好地适应屏幕。我们通过媒体查询技术来达到目的：
+
+更大的屏幕上，有更多的空间，内容的摆放也就有更多的自由度。
+Note
+你不需要一次移动所有元素，可以按需要做小的调整。
+在我们的产品页下，看起来我们需要：
+限制设计的最大宽度。
+修改元素的内边距，减小文字大小。
+浮动表单，使它跟页头内容并排。
+让视频浮动起来，内容环绕。
+缩小图片尺寸，在一个更佳的网格中显示。
+Related guides
+响应式 WEB 设计
+使用媒体查询
+布局模式
+布局模式
+响应式 WEB 设计
+多数流动式布局 */
+/* 限制设计的最大宽度
+我们已经决定只留两个大的布局：窄的视口和宽的视口，简化我们的构建过程。
+我们也决定了，窄视口上的全出血部分，在宽视口上保持全出血。这意味着，
+我们需要限制屏幕的最大宽度，否则在极宽的屏幕上，文本和段落会扩展成一个极长的单行。我们选择了 800px 这个点。
+为些，我们需要限制宽度，居中元素。我们需要创建一个包含块，
+将所有其它主要部分置入其中，然后应用一个 margin: auto。这允许屏幕增大，但内容保持居中，且最大宽度为 800px。
+包含块是以下形式的一个简单 div：
+<div class="container">...</div>
+    <div id="section1">
+      <div class="container">
+        <h2>What will I learn?</h2> */
+
+@media (min-width: 600px) {}
+/*  */
+
+.container {
+    margin: auto;
+    max-width: 800px;
+}
+/* 修改元素的内边距，减小文字大小
+在窄视口上，我们没有大量的空间来显示内容，于是字体的大小与粗细通常都要大幅缩小来适应屏幕。
+较大的视口的话，我们需要想到，用户很可能是在更大的屏幕上，但也距离更远。为了增加内容的可阅读性，
+我们可以增加字体大小和字体粗细，同时修改内边距，使得不同区域的区别更加明显。
+在我们的产品页中，我们将增加 section 元素的内边距，让它保持在宽度的 5%。我们同时也增加各分块头部的字体大小。 */
+
+#headline {
+    padding: 20px 5%;
+}
+/* 调整元素，适应宽视口
+我们的窄视口是一个堆叠的线性展示。每个主分块及分块内容，都按从上到下的顺序排布。
+宽视口给了我们更多的空间，针对该屏幕，有更好的展示内容的方法。对我们的产品页来说，根据我们的 IA，这意味着我们能够：
+将表单移动到页头内容边。
+定位视频到关键点右侧。
+拼贴图片。
+扩展表格。 */
+/* 浮动表单元素
+窄视口意味着，在水平方向上，我们没有足够的空间来舒适地摆放元素。
+为了更有效地利用水平方向的屏幕空间，我们需要打破页头的线性流，移动表单，让它与列表并排。浮动表单元素
+窄视口意味着，在水平方向上，我们没有足够的空间来舒适地摆放元素。
+为了更有效地利用水平方向的屏幕空间，我们需要打破页头的线性流，移动表单，让它与列表并排。 */
+
+#headline #blurb {
+    float: left;
+    font-weight: 200;
+    width: 50%;
+    font-size: 18px;
+    box-sizing: border-box;
+    padding-right: 10px;
+}
+#headline #register {
+    float: right;
+    padding: 20px;
+    width: 50%;
+    box-sizing: border-box;
+    font-weight: 300;
+}
+#headline br {
+    clear: both;
+}
+/* 浮动视频元素
+窄视口中，视频撑满屏幕的宽度，并放置在重要特性列表后。宽视口中，视频会撑得太宽，这时还放置在特性列表后，看起来就会不对。
+video 元素需要从窄视口的竖直流中移出，与列表内容并排显示。 */
+
+#section1 ul {
+    box-sizing: border-box;
+    float: left;
+    width: 50%;
+    padding-right: 1em;
+}
+#section1 video {
+    width: 50%;
+    float: right;
+}
+/* 拼贴图片
+窄视口 (大部分是移动设备) 中，图片设计为撑满屏幕宽度，并在垂直方向堆叠。宽视口上撑满就不太好了。
+为了让图片在宽视口上看着正常，它们将其缩小到包含块的 30% 宽度，水平排布 (而不是窄视口中的垂直排布)。
+我们还添加了些边框圆角和盒阴影，让图片看起来更加吸引人。 */
+
+#section2 div img {
+    width: 30%;
+    margin: 1%;
+    box-sizing: border-box;
+    border-radius: 50% 50%;
+    box-shadow: black 0px 0px 5px;
+}
+/*
+表格
+在窄视口设备上，表格很难弄，需要特别注意。
+我们推荐在窄视口上，把你的表格变成两行，将一行里的行头跟单元格都变换成列。
+在我们的站点中，我们为表格内容额外创建了一个断点。在移动先行的构建中，
+很难取消已经应用的样式。所以我们需要把窄视口的表格样式与宽视口的样式区分开来。
+这使得断点更为清晰，也更一致。*/
+
+@media screen and (max-width: 600px) {
+    table thead {
+        display: none;
+    }
+    table td {
+        display: block;
+        position: relative;
+        padding-left: 50%;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        text-align: left;
+        background: #e9e9e9;
+    }
+    table td:before {
+        content: attr(data-th)" :";
+        display: inline-block;
+        color: #000000;
+        background: #e9e9e9;
+        border-right: 2px solid transparent;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 33%;
+        max-height: 100%;
+        font-size: 16px;
+        font-weight: 300;
+        padding-left: 13px;
+        padding-top: 13px;
+    }
+}
+/* 尾声
+恭喜。 你读到这里时，就已经创建好你的首个简单的产品着陆页，能在各种设备、各种外观、各种屏幕大小上运行良好。
+只要你跟着以下这些指导，你就有一个好的开始：
+创建一个基本的 IA，在编码前清楚你的内容。
+始终设置 viewport。
+本着移动先行的原则构建你的基本体验。
+一旦构建好移动版，不断增加显示宽度，直到页面显示糟糕，在那里设置断点。
+保持迭代。 */
